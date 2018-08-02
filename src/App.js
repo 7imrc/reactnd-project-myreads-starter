@@ -3,17 +3,17 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 import FrontPage from './FrontPage';
 import SearchBook from './SearchBook';
+
 class BooksApp extends React.Component {
 
 state = {
   listOfBooks: []
 }
 
-componentDidMount(){
-  BooksAPI.getAll()
-    .then( (books) => this.setState({
-      listOfBooks: books
-    }))
+componentDidMount() {
+  BooksAPI.getAll().then( (books) => {
+    this.setState({listOfBooks: books})
+  })
 }
 /*
   state = {
@@ -30,11 +30,11 @@ componentDidMount(){
 */
 
   render() {
-    console.log(this.state.listOfBooks);
+    //console.log(this.state.listOfBooks);
 
     return (
       <div className="app">
-        <FrontPage />
+        <FrontPage listOfBooks={this.state.listOfBooks} />
       {/*<SearchBook />*/}
       </div>
     )

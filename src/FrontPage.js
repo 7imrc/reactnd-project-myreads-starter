@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BookInfo from './BookInfo';
 class FrontPage extends Component {
   render() {
+      console.log(this.props.listOfBooks);
     return (
       <div className="list-books">
         <div className="list-books-title">
