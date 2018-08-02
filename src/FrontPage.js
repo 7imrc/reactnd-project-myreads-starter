@@ -30,12 +30,15 @@ class FrontPage extends Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <BookInfo />
-                  </li>
-                  <li>
-                    <BookInfo />
-                  </li>
+                  {
+                    this.props.listOfBooks
+                      .filter( (book) => book.shelf === 'wantToRead')
+                        .map( (book) => (
+                          <li key={book.id}>
+                            <BookInfo />
+                          </li>
+                        ))
+                  }
                 </ol>
               </div>
             </div>
@@ -43,15 +46,15 @@ class FrontPage extends Component {
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    <BookInfo />
-                  </li>
-                  <li>
-                    <BookInfo />
-                  </li>
-                  <li>
-                    <BookInfo />
-                  </li>
+                  {
+                    this.props.listOfBooks
+                      .filter( (book) => book.shelf === 'read')
+                        .map( (book) => (
+                          <li key={book.id}>
+                            <BookInfo />
+                          </li>
+                        ))
+                  }
                 </ol>
               </div>
             </div>
