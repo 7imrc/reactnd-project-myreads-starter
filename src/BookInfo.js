@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 
-class BookInfo extends Component {
+class BookInfo extends React.Component {
+
+  constructor(props) {
+      super(props);
+
+      // This binding is necessary to make `this` work in the callback
+      this.handleChange = this.handleChange.bind(this);
+  }
+
+
   render() {
     return (
       <div className="book">
@@ -8,7 +17,10 @@ class BookInfo extends Component {
           <div className="book-cover" style={{ width: 128, height: 193,
             backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
           <div className="book-shelf-changer">
-            <select value={this.props.book.shelf}>
+            <select
+              value={this.props.book.shelf}
+              onChange={this.handleChange}
+            >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -22,6 +34,14 @@ class BookInfo extends Component {
       </div>
     );
   }
+
+  // Function to change the designated bookshelf for the book, when selected
+  handleChange(event) {
+    console.log(event.target.value, this.props.book);
+
+    this.props.changeBookShelf(this.props.book, event.target.value);
+  }
+
 }
 
 export default BookInfo;

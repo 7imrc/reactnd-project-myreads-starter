@@ -15,6 +15,10 @@ componentDidMount() {
     this.setState({listOfBooks: books})
   })
 }
+
+changeBookShelf = (book, shelf) => {
+  BooksAPI.update(book, shelf);
+}
 /*
   state = {
 */
@@ -34,7 +38,10 @@ componentDidMount() {
 
     return (
       <div className="app">
-        <FrontPage listOfBooks={this.state.listOfBooks} />
+        <FrontPage
+          listOfBooks={this.state.listOfBooks}
+          changeBookShelf={this.changeBookShelf}
+        />
       {/*<SearchBook />*/}
       </div>
     )

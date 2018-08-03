@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import BookInfo from './BookInfo';
+
 class FrontPage extends Component {
+
   render() {
       console.log(this.props.listOfBooks);
     return (
@@ -21,6 +23,7 @@ class FrontPage extends Component {
                           <li key={book.id}>
                             <BookInfo
                               book={book}
+                              changeBookShelf={this.props.changeBookShelf}
                             />
                           </li>
                         ))
@@ -39,6 +42,7 @@ class FrontPage extends Component {
                           <li key={book.id}>
                             <BookInfo
                               book={book}
+                              changeBookShelf={this.props.changeBookShelf}
                             />
                           </li>
                         ))
@@ -57,6 +61,7 @@ class FrontPage extends Component {
                           <li key={book.id}>
                             <BookInfo
                               book={book}
+                              changeBookShelf={this.props.changeBookShelf}
                             />
                           </li>
                         ))
