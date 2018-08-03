@@ -52,7 +52,7 @@ class BooksApp extends React.Component {
           listOfBooks={this.state.listOfBooks}
           changeBookShelf={this.changeBookShelf}
         />*/}
-      <SearchBook />
+        <SearchBook />
       </div>
     )
   }
