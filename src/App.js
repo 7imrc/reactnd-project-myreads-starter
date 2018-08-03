@@ -10,16 +10,20 @@ class BooksApp extends React.Component {
     listOfBooks: []
   }
 
+  // Update the state for the books
   updateBooks() {
     BooksAPI.getAll().then( (books) => {
       this.setState({listOfBooks: books})
     })
   }
 
+  // Retrieve all the books from the API
   componentDidMount() {
     this.updateBooks();
   }
 
+  // On user selecting a new dropdown option, change the designated
+  // bookshelf for the book.
   changeBookShelf = (book, shelf) => {
     BooksAPI.update(book, shelf);
     this.updateBooks();
