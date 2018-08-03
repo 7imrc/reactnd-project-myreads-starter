@@ -6,19 +6,24 @@ import SearchBook from './SearchBook';
 
 class BooksApp extends React.Component {
 
-state = {
-  listOfBooks: []
-}
+  state = {
+    listOfBooks: []
+  }
 
-componentDidMount() {
-  BooksAPI.getAll().then( (books) => {
-    this.setState({listOfBooks: books})
-  })
-}
+  componentDidMount() {
+    BooksAPI.getAll().then( (books) => {
+      this.setState({listOfBooks: books})
+    })
+  }
 
-changeBookShelf = (book, shelf) => {
-  BooksAPI.update(book, shelf);
-}
+  changeBookShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf);
+
+    BooksAPI.getAll().then( (books) => {
+      this.setState({listOfBooks: books})
+    })
+  }
+
 /*
   state = {
 */
