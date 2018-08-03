@@ -48,11 +48,11 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-        <FrontPage
+        {/*<FrontPage
           listOfBooks={this.state.listOfBooks}
           changeBookShelf={this.changeBookShelf}
-        />
-      {/*<SearchBook />*/}
+        />*/}
+      <SearchBook />
       </div>
     )
   }
