@@ -19,20 +19,28 @@ class SearchBook extends Component {
 
   // Search the list of books against the input search query.
   searchedForBooks = (query) => {
+
     if (query) {
       BooksAPI.search(query).then( (searchedBook) => {
-        this.setState({ bookSearch: searchedBook })
-      })
+        if(searchedBook.error) {
+          console.log("ERROR");
+          console.log(searchedBook.error);
+          console.log(searchedBook);
+          this.setState({ bookSearch: [] });
+        } else {
+          this.setState({ bookSearch: searchedBook });
+        }
+      });
     } else {
-      this.setState({ bookSearch: [] })
+      this.setState({ bookSearch: [] });
     }
   }
 
   render() {
 
     //console.log(this.state.bookSearch);
-    console.log(BooksAPI.search('education'));
-    console.log(BooksAPI.search('emile'));
+    //console.log(BooksAPI.search('education'));
+    //console.log(BooksAPI.search('emile'));
 
     return (
       <div className="search-books">
