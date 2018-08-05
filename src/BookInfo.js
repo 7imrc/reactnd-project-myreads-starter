@@ -38,8 +38,12 @@ class BookInfo extends React.Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
+        <div className="book-title">
+          {this.props.book.title ? this.props.book.title : 'No title'}
+        </div>
+        <div className="book-authors">
+          {this.props.book.authors ? this.props.book.authors : 'No author'}
+        </div>
       </div>
     );
   }
