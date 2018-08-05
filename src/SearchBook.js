@@ -30,7 +30,9 @@ class SearchBook extends Component {
 
   render() {
 
-    console.log(this.state.bookSearch);
+    //console.log(this.state.bookSearch);
+    console.log(BooksAPI.search('education'));
+    console.log(BooksAPI.search('emile'));
 
     return (
       <div className="search-books">
