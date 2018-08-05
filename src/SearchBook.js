@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
+import * as BooksAPI from './BooksAPI';
+import BookInfo from './BookInfo';
+import escapeRegExp from 'escape-string-regexp';
+
 
 class SearchBook extends Component {
 
   state = {
-        query: ''
+        query: '',
+        bookSearch: []
     }
 
+  // Updates the state with reference to what is typed in the search bar.
   updateQuery = (query) => {
     this.setState({ query: query })
+    this.searchedForBooks(query);
   }
 
-
-
+  // Search the list of books against the input search query.
+  searchedForBooks = (query) => {
+    if (query) {
+      BooksAPI.search(query).then( (searchedBook) => {
+        this.setState({ bookSearch: searchedBook })
+      })
+    } else {
+      this.setState({ bookSearch: [] })
+    }
+  }
 
   render() {
+
+    console.log(this.state.bookSearch);
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
