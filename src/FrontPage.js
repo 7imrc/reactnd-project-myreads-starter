@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BookInfo from './BookInfo';
+import { Link } from 'react-router-dom';
 
 class FrontPage extends Component {
 
@@ -72,7 +73,9 @@ class FrontPage extends Component {
           </div>
         </div>
         <div className="open-search">
-          <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+          <Link to="/SearchBook">
+            Add a book
+          </Link>
         </div>
       </div>
     );
