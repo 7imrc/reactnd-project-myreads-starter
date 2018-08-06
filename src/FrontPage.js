@@ -25,6 +25,7 @@ class FrontPage extends Component {
                             <BookInfo
                               book={book}
                               changeBookShelf={this.props.changeBookShelf}
+                              shelf={book.shelf}
                             />
                           </li>
                         ))
@@ -44,6 +45,7 @@ class FrontPage extends Component {
                             <BookInfo
                               book={book}
                               changeBookShelf={this.props.changeBookShelf}
+                              shelf={book.shelf}
                             />
                           </li>
                         ))
@@ -63,6 +65,7 @@ class FrontPage extends Component {
                             <BookInfo
                               book={book}
                               changeBookShelf={this.props.changeBookShelf}
+                              shelf={book.shelf}
                             />
                           </li>
                         ))

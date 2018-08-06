@@ -23,9 +23,9 @@ class SearchBook extends Component {
     if (query) {
       BooksAPI.search(query).then( (searchedBook) => {
         if(searchedBook.error) {
-          console.log("ERROR");
-          console.log(searchedBook.error);
-          console.log(searchedBook);
+          //console.log("ERROR");
+          //console.log(searchedBook.error);
+          //console.log(searchedBook);
           this.setState({ bookSearch: [] });
         } else {
           this.setState({ bookSearch: searchedBook });
@@ -70,14 +70,24 @@ class SearchBook extends Component {
           <ol className="books-grid">
             {
               this.state.bookSearch
-                .map( (searchedBook) => (
-                  <li key={searchedBook.id}>
-                    <BookInfo
-                      book={searchedBook}
-                      changeBookShelf={this.props.changeBookShelf}
-                      />
-                      </li>
-                ))
+              .map( (searchedBook) => {
+
+                // Determine if the searched book has an existing allocated bookshelf
+                let bookShelf = 'none';
+
+                this.props.listOfBooks.filter(book => book.id === searchedBook.id)
+                 .map(book => {bookShelf = book.shelf})
+
+                  return (
+                    <li key={searchedBook.id}>
+                      <BookInfo
+                        book={searchedBook}
+                        changeBookShelf={this.props.changeBookShelf}
+                        shelf={bookShelf}
+                        />
+                    </li>
+                )
+              })
             }
           </ol>
         </div>
