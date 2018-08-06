@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
 import BookInfo from './BookInfo';
-import escapeRegExp from 'escape-string-regexp';
 import { Link } from 'react-router-dom';
 
 class SearchBook extends Component {
@@ -19,13 +18,11 @@ class SearchBook extends Component {
 
   // Search the list of books against the input search query.
   searchedForBooks = (query) => {
-
     if (query) {
       BooksAPI.search(query).then( (searchedBook) => {
+        // If the entered search term provides an error, then return nothing.
+        // Otherwise, return the matched books.
         if(searchedBook.error) {
-          //console.log("ERROR");
-          //console.log(searchedBook.error);
-          //console.log(searchedBook);
           this.setState({ bookSearch: [] });
         } else {
           this.setState({ bookSearch: searchedBook });
@@ -37,11 +34,6 @@ class SearchBook extends Component {
   }
 
   render() {
-
-    //console.log(this.state.bookSearch);
-    //console.log(BooksAPI.search('education'));
-    //console.log(BooksAPI.search('emile'));
-
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -63,7 +55,6 @@ class SearchBook extends Component {
               value={this.state.query}
               onChange={(event) => this.updateQuery(event.target.value)}
             />
-
           </div>
         </div>
         <div className="search-books-results">
@@ -71,12 +62,14 @@ class SearchBook extends Component {
             {
               this.state.bookSearch
               .map( (searchedBook) => {
-
-                // Determine if the searched book has an existing allocated bookshelf
+                /* Display the books matching the search term.  In addition, detemine if
+                 * the searched book has an existing allocated bookshelf and display
+                 * that bookshelf by default.
+                 */
                 let bookShelf = 'none';
 
                 this.props.listOfBooks.filter(book => book.id === searchedBook.id)
-                 .map(book => {bookShelf = book.shelf})
+                 .map(book => {bookShelf = book.shelf});
 
                   return (
                     <li key={searchedBook.id}>

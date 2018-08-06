@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class FrontPage extends Component {
 
   render() {
-      console.log(this.props.listOfBooks);
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -18,6 +17,7 @@ class FrontPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
+                    // Display 'Currently Reading' books.
                     this.props.listOfBooks
                       .filter( (book) => book.shelf === 'currentlyReading')
                         .map( (book) => (
@@ -38,6 +38,7 @@ class FrontPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
+                    // Display 'Want to Read' books.
                     this.props.listOfBooks
                       .filter( (book) => book.shelf === 'wantToRead')
                         .map( (book) => (
@@ -58,6 +59,7 @@ class FrontPage extends Component {
               <div className="bookshelf-books">
                 <ol className="books-grid">
                   {
+                    // Display 'Read' books.
                     this.props.listOfBooks
                       .filter( (book) => book.shelf === 'read')
                         .map( (book) => (
@@ -81,8 +83,6 @@ class FrontPage extends Component {
       </div>
     );
   }
-
-
 }
 
 export default FrontPage;

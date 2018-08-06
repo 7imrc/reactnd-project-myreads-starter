@@ -19,7 +19,7 @@ This bookshelf app allows you to select and categorize books you have read, are 
 
 The main page displays the following categories, which can contain a number of books:
 
-* Currently reading
+* Currently Reading
 * Want to Read
 * Read
 
@@ -28,7 +28,7 @@ resides in.
 
 In addition, the user can also select the link at the lower right of the page to access the search page.  Here the user can enter the title or author of the book to search for, with the results appearing automatically.
 
-Note, that there is also a limited set of search terms that can also be used, but these are strictly limited to the words denoted in [SEARCH_TERMS.md](https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md).
+Note, that there is also a limited set of search terms that can also be used, but these are strictly limited to the words denoted in [SEARCH_TERMS.md](https://github.com/7imrc/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md).
 
 Similar to the main page, the user can move a selected book to a particular bookshelf, where it can be seen when returning to the main page.
 
