@@ -51,7 +51,7 @@ class BookInfo extends React.Component {
 
   // Function to change the designated bookshelf for the book, when selected
   handleChange(event) {
-    console.log(event.target.value, this.props.book);
+    //console.log(event.target.value, this.props.book);
 
     this.props.changeBookShelf(this.props.book, event.target.value);
   }
