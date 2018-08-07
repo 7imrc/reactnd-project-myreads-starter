@@ -26,8 +26,9 @@ class BooksApp extends React.Component {
   // On user selecting a new dropdown option, change the designated
   // bookshelf for the book.
   changeBookShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-    this.updateBooks();
+    BooksAPI.update(book, shelf).then( () => {
+      this.updateBooks();
+    });
   }
 
 
